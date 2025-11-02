@@ -4,10 +4,7 @@ Proposed expansion to [natural_pdf](https://github.com/jsoma/natural-pdf) to ide
 
 Navigate to your project directory and clone this repository:
 
-
-```python
 git clone https://github.com/declanrjb/naturalpdf-table-delim
-```
 
 Import the module in a new Python script or the interpreter:
 
@@ -65,24 +62,870 @@ td.table_delim(page,
     cols='line:vertical[height>=20]', # vertical lines of height at least 20
     bbox = {
         'top': page.find('text:contains("PRESIDENT")').bottom # only apply this scrape to the part of the page below the first appearance of PRESIDENT
-    }).to_html()
+    })
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Cell In[16], line 2
-          1 td.table_delim(page, 
-    ----> 2     rows=rows, # text on the left hand side of the page consisting of at least one world followed by 0 or more digits
-          3     cols='line:vertical[height>=20]', # vertical lines of height at least 20
-          4     bbox = {
-          5         'top': page.find('text:contains("PRESIDENT")').bottom # only apply this scrape to the part of the page below the first appearance of PRESIDENT
-          6     }).to_html()
 
 
-    NameError: name 'rows' is not defined
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Allendale 1</td>
+      <td>Early Voting</td>
+      <td>485</td>
+      <td>6</td>
+      <td>1.24%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Allendale 1</td>
+      <td>Election Day</td>
+      <td>485</td>
+      <td>82</td>
+      <td>16.91%</td>
+      <td></td>
+      <td>6</td>
+      <td>70</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>68</td>
+      <td>3</td>
+      <td>7</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allendale 1</td>
+      <td>Mail-In</td>
+      <td>485</td>
+      <td>46</td>
+      <td>9.48%</td>
+      <td></td>
+      <td></td>
+      <td>41</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>40</td>
+      <td></td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Allendale 1</td>
+      <td>Total</td>
+      <td>485</td>
+      <td>134</td>
+      <td>27.63%</td>
+      <td></td>
+      <td>6</td>
+      <td>116</td>
+      <td>7</td>
+      <td></td>
+      <td></td>
+      <td>114</td>
+      <td>3</td>
+      <td>10</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Allendale 2</td>
+      <td>Early Voting</td>
+      <td>257</td>
+      <td>2</td>
+      <td>0.78%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Allendale 2</td>
+      <td>Election Day</td>
+      <td>257</td>
+      <td>33</td>
+      <td>12.84%</td>
+      <td></td>
+      <td></td>
+      <td>29</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>29</td>
+      <td>1</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Allendale 2</td>
+      <td>Mail-In</td>
+      <td>257</td>
+      <td>26</td>
+      <td>10.12%</td>
+      <td></td>
+      <td></td>
+      <td>23</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>23</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Allendale 2</td>
+      <td>Total</td>
+      <td>257</td>
+      <td>61</td>
+      <td>23.74%</td>
+      <td></td>
+      <td></td>
+      <td>54</td>
+      <td>5</td>
+      <td></td>
+      <td></td>
+      <td>54</td>
+      <td>3</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Allendale 3</td>
+      <td>Early Voting</td>
+      <td>338</td>
+      <td>2</td>
+      <td>0.59%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Allendale 3</td>
+      <td>Election Day</td>
+      <td>338</td>
+      <td>33</td>
+      <td>9.76%</td>
+      <td></td>
+      <td></td>
+      <td>32</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>3</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Allendale 3</td>
+      <td>Mail-In</td>
+      <td>338</td>
+      <td>43</td>
+      <td>12.72%</td>
+      <td></td>
+      <td></td>
+      <td>40</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>34</td>
+      <td>3</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Allendale 3</td>
+      <td>Total</td>
+      <td>338</td>
+      <td>78</td>
+      <td>23.08%</td>
+      <td></td>
+      <td></td>
+      <td>74</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>62</td>
+      <td>6</td>
+      <td>7</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Allendale 4</td>
+      <td>Early Voting</td>
+      <td>501</td>
+      <td>6</td>
+      <td>1.20%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Allendale 4</td>
+      <td>Election Day</td>
+      <td>501</td>
+      <td>45</td>
+      <td>8.98%</td>
+      <td></td>
+      <td></td>
+      <td>40</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>41</td>
+      <td>1</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Allendale 4</td>
+      <td>Mail-In</td>
+      <td>501</td>
+      <td>57</td>
+      <td>11.38%</td>
+      <td></td>
+      <td></td>
+      <td>57</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>49</td>
+      <td>3</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Allendale 4</td>
+      <td>Total</td>
+      <td>501</td>
+      <td>108</td>
+      <td>21.56%</td>
+      <td></td>
+      <td></td>
+      <td>103</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>96</td>
+      <td>4</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Allendale</td>
+      <td>Early Voting</td>
+      <td>1581</td>
+      <td>16</td>
+      <td>1.01%</td>
+      <td></td>
+      <td></td>
+      <td>15</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>16</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Allendale</td>
+      <td>Election Day</td>
+      <td>1581</td>
+      <td>193</td>
+      <td>12.21%</td>
+      <td></td>
+      <td>6</td>
+      <td>171</td>
+      <td>9</td>
+      <td></td>
+      <td></td>
+      <td>164</td>
+      <td>8</td>
+      <td>13</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Allendale</td>
+      <td>Mail-In</td>
+      <td>1581</td>
+      <td>172</td>
+      <td>10.88%</td>
+      <td></td>
+      <td></td>
+      <td>161</td>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td>146</td>
+      <td>8</td>
+      <td>10</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Allendale</td>
+      <td>Total</td>
+      <td>1581</td>
+      <td>381</td>
+      <td>24.10%</td>
+      <td></td>
+      <td>6</td>
+      <td>347</td>
+      <td>18</td>
+      <td></td>
+      <td></td>
+      <td>326</td>
+      <td>16</td>
+      <td>23</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Alpine 1</td>
+      <td>Early Voting</td>
+      <td>465</td>
+      <td>8</td>
+      <td>1.72%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Alpine 1</td>
+      <td>Election Day</td>
+      <td>465</td>
+      <td>162</td>
+      <td>34.84%</td>
+      <td></td>
+      <td>12</td>
+      <td>95</td>
+      <td>20</td>
+      <td>2</td>
+      <td></td>
+      <td>96</td>
+      <td>9</td>
+      <td>19</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Alpine 1</td>
+      <td>Mail-In</td>
+      <td>465</td>
+      <td>30</td>
+      <td>6.45%</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>22</td>
+      <td></td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Alpine 1</td>
+      <td>Total</td>
+      <td>465</td>
+      <td>200</td>
+      <td>43.01%</td>
+      <td></td>
+      <td>12</td>
+      <td>124</td>
+      <td>22</td>
+      <td>2</td>
+      <td></td>
+      <td>123</td>
+      <td>9</td>
+      <td>23</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Alpine</td>
+      <td>Early Voting</td>
+      <td>465</td>
+      <td>8</td>
+      <td>1.72%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Alpine</td>
+      <td>Election Day</td>
+      <td>465</td>
+      <td>162</td>
+      <td>34.84%</td>
+      <td></td>
+      <td>12</td>
+      <td>95</td>
+      <td>20</td>
+      <td>2</td>
+      <td></td>
+      <td>96</td>
+      <td>9</td>
+      <td>19</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Alpine</td>
+      <td>Mail-In</td>
+      <td>465</td>
+      <td>30</td>
+      <td>6.45%</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>22</td>
+      <td></td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Alpine</td>
+      <td>Total</td>
+      <td>465</td>
+      <td>200</td>
+      <td>43.01%</td>
+      <td></td>
+      <td>12</td>
+      <td>124</td>
+      <td>22</td>
+      <td>2</td>
+      <td></td>
+      <td>123</td>
+      <td>9</td>
+      <td>23</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Bergenfield 1</td>
+      <td>Early Voting</td>
+      <td>426</td>
+      <td>5</td>
+      <td>1.17%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Bergenfield 1</td>
+      <td>Election Day</td>
+      <td>426</td>
+      <td>36</td>
+      <td>8.45%</td>
+      <td></td>
+      <td>2</td>
+      <td>28</td>
+      <td>5</td>
+      <td></td>
+      <td></td>
+      <td>27</td>
+      <td>3</td>
+      <td>5</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Bergenfield 1</td>
+      <td>Mail-In</td>
+      <td>426</td>
+      <td>32</td>
+      <td>7.51%</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>24</td>
+      <td>2</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Bergenfield 1</td>
+      <td>Total</td>
+      <td>426</td>
+      <td>73</td>
+      <td>17.14%</td>
+      <td></td>
+      <td>2</td>
+      <td>57</td>
+      <td>10</td>
+      <td></td>
+      <td></td>
+      <td>54</td>
+      <td>5</td>
+      <td>11</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Bergenfield 2</td>
+      <td>Early Voting</td>
+      <td>462</td>
+      <td>1</td>
+      <td>0.22%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Bergenfield 2</td>
+      <td>Election Day</td>
+      <td>462</td>
+      <td>61</td>
+      <td>13.20%</td>
+      <td></td>
+      <td>6</td>
+      <td>49</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>41</td>
+      <td>1</td>
+      <td>16</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Bergenfield 2</td>
+      <td>Mail-In</td>
+      <td>462</td>
+      <td>28</td>
+      <td>6.06%</td>
+      <td></td>
+      <td></td>
+      <td>23</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>19</td>
+      <td>3</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Bergenfield 2</td>
+      <td>Total</td>
+      <td>462</td>
+      <td>90</td>
+      <td>19.48%</td>
+      <td></td>
+      <td>6</td>
+      <td>73</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>61</td>
+      <td>4</td>
+      <td>19</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Bergenfield 3</td>
+      <td>Early Voting</td>
+      <td>455</td>
+      <td>4</td>
+      <td>0.88%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Bergenfield 3</td>
+      <td>Election Day</td>
+      <td>455</td>
+      <td>36</td>
+      <td>7.91%</td>
+      <td></td>
+      <td>3</td>
+      <td>30</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>4</td>
+      <td>5</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Bergenfield 3</td>
+      <td>Mail-In</td>
+      <td>455</td>
+      <td>28</td>
+      <td>6.15%</td>
+      <td></td>
+      <td></td>
+      <td>22</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+      <td>23</td>
+      <td>1</td>
+      <td>3</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Bergenfield 3</td>
+      <td>Total</td>
+      <td>455</td>
+      <td>68</td>
+      <td>14.95%</td>
+      <td></td>
+      <td>3</td>
+      <td>55</td>
+      <td>5</td>
+      <td></td>
+      <td></td>
+      <td>53</td>
+      <td>5</td>
+      <td>8</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Bergenfield 4</td>
+      <td>Early Voting</td>
+      <td>483</td>
+      <td>1</td>
+      <td>0.21%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Bergenfield 4</td>
+      <td>Election Day</td>
+      <td>483</td>
+      <td>48</td>
+      <td>9.94%</td>
+      <td></td>
+      <td>3</td>
+      <td>33</td>
+      <td>9</td>
+      <td></td>
+      <td></td>
+      <td>34</td>
+      <td>1</td>
+      <td>6</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Bergenfield 4</td>
+      <td>Mail-In</td>
+      <td>483</td>
+      <td>36</td>
+      <td>7.45%</td>
+      <td></td>
+      <td>2</td>
+      <td>31</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td>26</td>
+      <td>7</td>
+      <td>2</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 Compared to an attempt to scrape the same page using base natural_pdf:
@@ -91,6 +934,8 @@ Compared to an attempt to scrape the same page using base natural_pdf:
 ```python
 pd.DataFrame(page.extract_table())
 ```
+
+
 
 
 <div>
@@ -222,6 +1067,7 @@ pd.DataFrame(page.extract_table())
   </tbody>
 </table>
 </div>
+
 
 
 ## Use of Force in Vancouver
