@@ -58,7 +58,7 @@ td.table_delim(page,
     cols = 'line:vertical[height>=20]', # vertical lines of height at least 20
     bbox = {
         'top': page.find('text:contains("Allendale 1")').top # only apply this scrape to the part of the page below the first appearance of PRESIDENT
-    })
+    })[1:]
 ```
 
 
@@ -101,25 +101,6 @@ td.table_delim(page,
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>0</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
     <tr>
       <th>1</th>
       <td>Allendale 1</td>
