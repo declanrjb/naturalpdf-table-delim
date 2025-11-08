@@ -90,10 +90,7 @@ def df_expand(df):
     i = 0
     expansions = []
     while i < len(df):
-        print('-----')
-        print(df.iloc[i][0])
         if '\n' in df.iloc[i][0]:
-            print('found a new line')
             expanded_data = unfold_row(df.iloc[i])
             df = df.drop(i).reset_index(drop=True)
             expansions.append(expanded_data)
@@ -111,7 +108,7 @@ def unfold_row(row):
 
     return pd.DataFrame(expanded_rows).transpose()
 
-def table_delim(page, rows, cols, bbox={}):
+def table_delim(page, rows, cols, bbox={}, try_unfold=True):
     
     default_bbox = {
         'left': 0,
@@ -151,6 +148,7 @@ def table_delim(page, rows, cols, bbox={}):
         for row in rows
     ])
 
-    df = df_expand(df)
+    if try_unfold:
+        df = df_expand(df)
 
     return df

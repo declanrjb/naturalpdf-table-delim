@@ -51,14 +51,12 @@ page.show()
 
 
 ```python
-left_margin = page.create_region(0, 0, 100, page.height)
-
 td.table_delim(page, 
-    rows = left_margin.find_all('text:regex("\w+[\s0-9]*$")'), # text on the left hand side of the page consisting of at least one world followed by 0 or more digits
-    cols = 'line:vertical[height>=20]', # vertical lines of height at least 20
+    rows = 'text:regex("[a-zA-Z]+\s[0-9]{0,1}$")', # text with at least one word folowed by a space followed by 0 or 1 numbers
+    cols = 'line:vertical', # vertical lines of height at least 20
     bbox = {
         'top': page.find('text:contains("Allendale 1")').top # only apply this scrape to the part of the page below the first appearance of PRESIDENT
-    })[1:]
+    })
 ```
 
 
@@ -97,12 +95,11 @@ td.table_delim(page,
       <th>12</th>
       <th>13</th>
       <th>14</th>
-      <th>15</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>0</th>
       <td>Allendale 1</td>
       <td>Early Voting</td>
       <td>485</td>
@@ -117,11 +114,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>Allendale 1</td>
       <td>Election Day</td>
       <td>485</td>
@@ -137,10 +133,9 @@ td.table_delim(page,
       <td>3</td>
       <td>7</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>Allendale 1</td>
       <td>Mail-In</td>
       <td>485</td>
@@ -156,10 +151,9 @@ td.table_delim(page,
       <td></td>
       <td>3</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>Allendale 1</td>
       <td>Total</td>
       <td>485</td>
@@ -175,10 +169,9 @@ td.table_delim(page,
       <td>3</td>
       <td>10</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>4</th>
       <td>Allendale 2</td>
       <td>Early Voting</td>
       <td>257</td>
@@ -193,11 +186,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>5</th>
       <td>Allendale 2</td>
       <td>Election Day</td>
       <td>257</td>
@@ -213,10 +205,9 @@ td.table_delim(page,
       <td>1</td>
       <td>2</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>6</th>
       <td>Allendale 2</td>
       <td>Mail-In</td>
       <td>257</td>
@@ -232,10 +223,9 @@ td.table_delim(page,
       <td>2</td>
       <td></td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>7</th>
       <td>Allendale 2</td>
       <td>Total</td>
       <td>257</td>
@@ -251,10 +241,9 @@ td.table_delim(page,
       <td>3</td>
       <td>2</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>8</th>
       <td>Allendale 3</td>
       <td>Early Voting</td>
       <td>338</td>
@@ -269,11 +258,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>9</th>
       <td>Allendale 3</td>
       <td>Election Day</td>
       <td>338</td>
@@ -289,10 +277,9 @@ td.table_delim(page,
       <td>3</td>
       <td>3</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>10</th>
       <td>Allendale 3</td>
       <td>Mail-In</td>
       <td>338</td>
@@ -308,10 +295,9 @@ td.table_delim(page,
       <td>3</td>
       <td>4</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>11</th>
       <td>Allendale 3</td>
       <td>Total</td>
       <td>338</td>
@@ -327,10 +313,9 @@ td.table_delim(page,
       <td>6</td>
       <td>7</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>12</th>
       <td>Allendale 4</td>
       <td>Early Voting</td>
       <td>501</td>
@@ -345,11 +330,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>13</th>
       <td>Allendale 4</td>
       <td>Election Day</td>
       <td>501</td>
@@ -365,10 +349,9 @@ td.table_delim(page,
       <td>1</td>
       <td>1</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>14</th>
       <td>Allendale 4</td>
       <td>Mail-In</td>
       <td>501</td>
@@ -384,257 +367,63 @@ td.table_delim(page,
       <td>3</td>
       <td>3</td>
       <td></td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Alpine 1</td>
+      <td>Early Voting</td>
+      <td>465</td>
+      <td>8</td>
+      <td>1.72%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
       <td></td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Allendale 4</td>
-      <td>Total</td>
-      <td>501</td>
-      <td>108</td>
-      <td>21.56%</td>
+      <td>Alpine 1</td>
+      <td>Election Day</td>
+      <td>465</td>
+      <td>162</td>
+      <td>34.84%</td>
       <td></td>
-      <td></td>
-      <td>103</td>
-      <td>4</td>
-      <td></td>
+      <td>12</td>
+      <td>95</td>
+      <td>20</td>
+      <td>2</td>
       <td></td>
       <td>96</td>
-      <td>4</td>
-      <td>4</td>
-      <td></td>
+      <td>9</td>
+      <td>19</td>
       <td></td>
     </tr>
     <tr>
       <th>17</th>
-      <td>Allendale</td>
-      <td>Early Voting</td>
-      <td>1581</td>
-      <td>16</td>
-      <td>1.01%</td>
+      <td>Alpine 1</td>
+      <td>Mail-In</td>
+      <td>465</td>
+      <td>30</td>
+      <td>6.45%</td>
       <td></td>
       <td></td>
-      <td>15</td>
+      <td>26</td>
       <td>1</td>
       <td></td>
       <td></td>
-      <td>16</td>
+      <td>22</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>4</td>
       <td></td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Allendale</td>
-      <td>Election Day</td>
-      <td>1581</td>
-      <td>193</td>
-      <td>12.21%</td>
-      <td></td>
-      <td>6</td>
-      <td>171</td>
-      <td>9</td>
-      <td></td>
-      <td></td>
-      <td>164</td>
-      <td>8</td>
-      <td>13</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Allendale</td>
-      <td>Mail-In</td>
-      <td>1581</td>
-      <td>172</td>
-      <td>10.88%</td>
-      <td></td>
-      <td></td>
-      <td>161</td>
-      <td>8</td>
-      <td></td>
-      <td></td>
-      <td>146</td>
-      <td>8</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Allendale</td>
-      <td>Total</td>
-      <td>1581</td>
-      <td>381</td>
-      <td>24.10%</td>
-      <td></td>
-      <td>6</td>
-      <td>347</td>
-      <td>18</td>
-      <td></td>
-      <td></td>
-      <td>326</td>
-      <td>16</td>
-      <td>23</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Alpine 1</td>
-      <td>Early Voting</td>
-      <td>465</td>
-      <td>8</td>
-      <td>1.72%</td>
-      <td></td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td></td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>Alpine 1</td>
-      <td>Election Day</td>
-      <td>465</td>
-      <td>162</td>
-      <td>34.84%</td>
-      <td></td>
-      <td>12</td>
-      <td>95</td>
-      <td>20</td>
-      <td>2</td>
-      <td></td>
-      <td>96</td>
-      <td>9</td>
-      <td>19</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Alpine 1</td>
-      <td>Mail-In</td>
-      <td>465</td>
-      <td>30</td>
-      <td>6.45%</td>
-      <td></td>
-      <td></td>
-      <td>26</td>
-      <td>1</td>
-      <td></td>
-      <td></td>
-      <td>22</td>
-      <td></td>
-      <td>4</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Alpine 1</td>
-      <td>Total</td>
-      <td>465</td>
-      <td>200</td>
-      <td>43.01%</td>
-      <td></td>
-      <td>12</td>
-      <td>124</td>
-      <td>22</td>
-      <td>2</td>
-      <td></td>
-      <td>123</td>
-      <td>9</td>
-      <td>23</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Alpine</td>
-      <td>Early Voting</td>
-      <td>465</td>
-      <td>8</td>
-      <td>1.72%</td>
-      <td></td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td></td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td>***</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Alpine</td>
-      <td>Election Day</td>
-      <td>465</td>
-      <td>162</td>
-      <td>34.84%</td>
-      <td></td>
-      <td>12</td>
-      <td>95</td>
-      <td>20</td>
-      <td>2</td>
-      <td></td>
-      <td>96</td>
-      <td>9</td>
-      <td>19</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Alpine</td>
-      <td>Mail-In</td>
-      <td>465</td>
-      <td>30</td>
-      <td>6.45%</td>
-      <td></td>
-      <td></td>
-      <td>26</td>
-      <td>1</td>
-      <td></td>
-      <td></td>
-      <td>22</td>
-      <td></td>
-      <td>4</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>Alpine</td>
-      <td>Total</td>
-      <td>465</td>
-      <td>200</td>
-      <td>43.01%</td>
-      <td></td>
-      <td>12</td>
-      <td>124</td>
-      <td>22</td>
-      <td>2</td>
-      <td></td>
-      <td>123</td>
-      <td>9</td>
-      <td>23</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>29</th>
       <td>Bergenfield 1</td>
       <td>Early Voting</td>
       <td>426</td>
@@ -649,11 +438,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>19</th>
       <td>Bergenfield 1</td>
       <td>Election Day</td>
       <td>426</td>
@@ -669,10 +457,9 @@ td.table_delim(page,
       <td>3</td>
       <td>5</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>20</th>
       <td>Bergenfield 1</td>
       <td>Mail-In</td>
       <td>426</td>
@@ -688,10 +475,9 @@ td.table_delim(page,
       <td>2</td>
       <td>4</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>21</th>
       <td>Bergenfield 1</td>
       <td>Total</td>
       <td>426</td>
@@ -707,10 +493,9 @@ td.table_delim(page,
       <td>5</td>
       <td>11</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>22</th>
       <td>Bergenfield 2</td>
       <td>Early Voting</td>
       <td>462</td>
@@ -725,11 +510,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>23</th>
       <td>Bergenfield 2</td>
       <td>Election Day</td>
       <td>462</td>
@@ -745,10 +529,9 @@ td.table_delim(page,
       <td>1</td>
       <td>16</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>35</th>
+      <th>24</th>
       <td>Bergenfield 2</td>
       <td>Mail-In</td>
       <td>462</td>
@@ -764,10 +547,9 @@ td.table_delim(page,
       <td>3</td>
       <td>3</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>36</th>
+      <th>25</th>
       <td>Bergenfield 2</td>
       <td>Total</td>
       <td>462</td>
@@ -783,10 +565,9 @@ td.table_delim(page,
       <td>4</td>
       <td>19</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>26</th>
       <td>Bergenfield 3</td>
       <td>Early Voting</td>
       <td>455</td>
@@ -801,11 +582,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>38</th>
+      <th>27</th>
       <td>Bergenfield 3</td>
       <td>Election Day</td>
       <td>455</td>
@@ -821,10 +601,9 @@ td.table_delim(page,
       <td>4</td>
       <td>5</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>28</th>
       <td>Bergenfield 3</td>
       <td>Mail-In</td>
       <td>455</td>
@@ -840,10 +619,9 @@ td.table_delim(page,
       <td>1</td>
       <td>3</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>40</th>
+      <th>29</th>
       <td>Bergenfield 3</td>
       <td>Total</td>
       <td>455</td>
@@ -859,10 +637,9 @@ td.table_delim(page,
       <td>5</td>
       <td>8</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>41</th>
+      <th>30</th>
       <td>Bergenfield 4</td>
       <td>Early Voting</td>
       <td>483</td>
@@ -877,11 +654,10 @@ td.table_delim(page,
       <td>***</td>
       <td>***</td>
       <td>***</td>
-      <td>***</td>
       <td></td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>31</th>
       <td>Bergenfield 4</td>
       <td>Election Day</td>
       <td>483</td>
@@ -897,10 +673,9 @@ td.table_delim(page,
       <td>1</td>
       <td>6</td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>32</th>
       <td>Bergenfield 4</td>
       <td>Mail-In</td>
       <td>483</td>
@@ -916,6 +691,185 @@ td.table_delim(page,
       <td>7</td>
       <td>2</td>
       <td></td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Allendale 4</td>
+      <td>Total</td>
+      <td>501</td>
+      <td>108</td>
+      <td>21.56%</td>
+      <td></td>
+      <td>6</td>
+      <td>103</td>
+      <td>4</td>
+      <td></td>
+      <td></td>
+      <td>96</td>
+      <td>4</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Allendale</td>
+      <td>Early Voting</td>
+      <td>1581</td>
+      <td>16</td>
+      <td>1.01%</td>
+      <td></td>
+      <td>6</td>
+      <td>15</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>16</td>
+      <td>8</td>
+      <td>13</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allendale</td>
+      <td>Election Day</td>
+      <td>1581</td>
+      <td>193</td>
+      <td>12.21%</td>
+      <td></td>
+      <td>None</td>
+      <td>171</td>
+      <td>9</td>
+      <td></td>
+      <td></td>
+      <td>164</td>
+      <td>8</td>
+      <td>10</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Allendale</td>
+      <td>Mail-In</td>
+      <td>1581</td>
+      <td>172</td>
+      <td>10.88%</td>
+      <td></td>
+      <td>None</td>
+      <td>161</td>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td>146</td>
+      <td>16</td>
+      <td>23</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Allendale</td>
+      <td>Total</td>
+      <td>1581</td>
+      <td>381</td>
+      <td>24.10%</td>
+      <td></td>
+      <td>None</td>
+      <td>347</td>
+      <td>18</td>
+      <td></td>
+      <td></td>
+      <td>326</td>
+      <td>None</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Alpine 1</td>
+      <td>Total</td>
+      <td>465</td>
+      <td>200</td>
+      <td>43.01%</td>
+      <td></td>
+      <td>12</td>
+      <td>124</td>
+      <td>22</td>
+      <td>2</td>
+      <td></td>
+      <td>123</td>
+      <td>9</td>
+      <td>23</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alpine</td>
+      <td>Early Voting</td>
+      <td>465</td>
+      <td>8</td>
+      <td>1.72%</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+      <td>***</td>
+      <td>***</td>
+      <td>***</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alpine</td>
+      <td>Election Day</td>
+      <td>465</td>
+      <td>162</td>
+      <td>34.84%</td>
+      <td></td>
+      <td>12</td>
+      <td>95</td>
+      <td>20</td>
+      <td>2</td>
+      <td></td>
+      <td>96</td>
+      <td>9</td>
+      <td>19</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alpine</td>
+      <td>Mail-In</td>
+      <td>465</td>
+      <td>30</td>
+      <td>6.45%</td>
+      <td></td>
+      <td>12</td>
+      <td>26</td>
+      <td>1</td>
+      <td>2</td>
+      <td></td>
+      <td>22</td>
+      <td>9</td>
+      <td>4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alpine</td>
+      <td>Total</td>
+      <td>465</td>
+      <td>200</td>
+      <td>43.01%</td>
+      <td></td>
+      <td>None</td>
+      <td>124</td>
+      <td>22</td>
+      <td>None</td>
+      <td></td>
+      <td>123</td>
+      <td>None</td>
+      <td>23</td>
       <td></td>
     </tr>
   </tbody>
