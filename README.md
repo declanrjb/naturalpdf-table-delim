@@ -1,10 +1,30 @@
+<head>
+  <style>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+  </style>
+</head>
+
+
 Proposed expansion to [natural_pdf](https://github.com/jsoma/natural-pdf) to identify tables by page elements or regular expressions. More effective in certain cases than methods reliant on OCR or page structure.
 
 # Quickstart
 
 Navigate to your project directory and clone this repository:
 
+
+```shell
 git clone https://github.com/declanrjb/naturalpdf-table-delim
+```
 
 Import the module in a new Python script or the interpreter:
 
@@ -19,6 +39,7 @@ For testing, you may also need to load the base natural_pdf library. (This proje
 ```python
 import natural_pdf
 from natural_pdf import PDF
+import pandas as pd
 ```
 
 # Structure
@@ -55,27 +76,10 @@ td.table_delim(page,
     rows = 'text:regex("[a-zA-Z]+\s[0-9]{0,1}$")', # text with at least one word folowed by a space followed by 0 or 1 numbers
     cols = 'line:vertical', # vertical lines of height at least 20
     bbox = {
-        'top': page.find('text:contains("Allendale 1")').top # only apply this scrape to the part of the page below the first appearance of PRESIDENT
+        'top': page.find('text:contains("PRESIDENT")').top # only apply this scrape to the part of the page below the first appearance of PRESIDENT
     })
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -874,7 +878,6 @@ td.table_delim(page,
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
@@ -1235,7 +1238,7 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
       <td>...</td>
     </tr>
     <tr>
-      <th>296</th>
+      <th>293</th>
       <td>PARDUE, BILL</td>
       <td>1/19/2018</td>
       <td>1/19/2018</td>
@@ -1259,7 +1262,7 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
       <td>970</td>
     </tr>
     <tr>
-      <th>297</th>
+      <th>294</th>
       <td>MARBACH, NICHOLAS</td>
       <td>1/20/2018</td>
       <td>1/18/2018</td>
@@ -1283,7 +1286,7 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
       <td>970</td>
     </tr>
     <tr>
-      <th>298</th>
+      <th>295</th>
       <td>MARBACH, NICHOLAS</td>
       <td>1/20/2018</td>
       <td>1/18/2018</td>
@@ -1307,7 +1310,7 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
       <td>970</td>
     </tr>
     <tr>
-      <th>299</th>
+      <th>296</th>
       <td>HEMSTOCK, STUART</td>
       <td>1/23/2018</td>
       <td>1/23/2018</td>
@@ -1331,7 +1334,7 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
       <td>970</td>
     </tr>
     <tr>
-      <th>300</th>
+      <th>297</th>
       <td>HAMMOND, SCOTLAND</td>
       <td>1/27/2018</td>
       <td>1/27/2018</td>
@@ -1356,7 +1359,132 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
     </tr>
   </tbody>
 </table>
-<p>301 rows × 22 columns</p>
+<p>298 rows × 22 columns</p>
 </div>
 
 
+
+# How it works
+
+Tabledelim approaches tables as grid structures delineated by page elements, rather than the visual cues of separating lines or shading. Given specifiers for rows and columns, tabledelim performs the following: 
+
+<ol>
+    <li>Sort the row specifiers vertically from top to bottom</li>
+    <li>Sort the col specifiers horizontally from left to right</li>
+    <li>Define a row as a horizontal strip from the top of the first row elem to the top of the second row elem. Repeat for each row elem to create a set of rows.</li>
+    <li>Define a column as a vertical strip from the top of the first col elem to the top of the second col elem. Repeat for each col elem to create a set of columns.</li>
+    <li>Loop through each unique combination of rows and columns. Define a cell to be the region of intersection between the two. Extract its text and return.</li>
+</ol>
+
+Consider the following page:
+
+
+```python
+pdf = PDF('demo/bergin_precincts.pdf')
+page = pdf.pages[0]
+page.show()
+```
+
+
+
+
+    
+![png](README_files/README_17_0.png)
+    
+
+
+
+We define rows to be selected by precinct names: a single word at the start of a line followed by 0 or 1 digits. Our first row elem is:
+
+
+```python
+page.find('text:contains("PRESIDENT")').below().find_all('text:regex("[a-zA-Z]+\s[0-9]{0,1}$")')[0].show()
+```
+
+
+
+
+    
+![png](README_files/README_19_0.png)
+    
+
+
+
+And our second row elem is:
+
+
+```python
+page.find('text:contains("PRESIDENT")').below().find_all('text:regex("[a-zA-Z]+\s[0-9]{0,1}$")')[1].show()
+```
+
+
+
+
+    
+![png](README_files/README_21_0.png)
+    
+
+
+
+So our first row is the strip between them:
+
+
+```python
+page.create_region(
+    0,
+    188,
+    page.width,
+    200
+).show()
+```
+
+
+
+
+    
+![png](README_files/README_23_0.png)
+    
+
+
+
+Columns we define likewise:
+
+
+```python
+page.create_region(
+    118,
+    0,
+    180,
+    page.height
+).show()
+```
+
+
+
+
+    
+![png](README_files/README_25_0.png)
+    
+
+
+
+And cells as their intersection:
+
+
+```python
+td.intersection(page, [
+    page.create_region(0, 188, page.width, 200), 
+    page.create_region(118, 0, 180, page.height)
+]).show()
+```
+
+
+
+
+    
+![png](README_files/README_27_0.png)
+    
+
+
+
+By iterating over every intersection, we extract the whole table.

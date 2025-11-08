@@ -4,7 +4,7 @@ import pandas as pd
 import re
 import math
 
-__all__ = ['table_delim', 'find_by_regex', 'delineate_regions', 'slice_fitting_elem']
+__all__ = ['table_delim', 'find_by_regex', 'delineate_regions', 'slice_fitting_elem', 'intersection']
 
 # accepts left, top, right, bottom
 def sort_elems_by_dim(elems, dim):
