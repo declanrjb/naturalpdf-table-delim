@@ -870,24 +870,6 @@ Compared to an attempt to scrape the same page using base natural_pdf:
 ```python
 pd.DataFrame(page.extract_table())
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1002,7 +984,6 @@ pd.DataFrame(page.extract_table())
     </tr>
   </tbody>
 </table>
-</div>
 
 
 
@@ -1031,23 +1012,6 @@ page.show()
 td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(page, 'text:contains("PFEIFER, TIM")').find_all('text'))
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1343,7 +1307,6 @@ td.table_delim(page, rows='text:contains("970")', cols=td.slice_fitting_elem(pag
   </tbody>
 </table>
 <p>298 rows × 22 columns</p>
-</div>
 
 
 
